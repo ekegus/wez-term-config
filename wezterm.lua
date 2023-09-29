@@ -1,13 +1,20 @@
 local wezterm = require("wezterm")
 local tab_bar = require("tab_bar")
+local keys_bindings = require("key_bindings")
 
-local color_scheme = "rose-pine-moon"
+local color_scheme = "nord"
 local font = "Iosevka Nerd Font"
+
+wezterm.on("gui-startup", function(cmd)
+	local _, _, window = wezterm.mux.spawn_window(cmd or {})
+	window:gui_window():maximize()
+end)
 
 local tab_bar_theme = tab_bar.extract_tab_bar_colors_from_theme(color_scheme)
 
 local config = wezterm.config_builder()
-config.keys = tab_bar.keys
+
+config.keys = keys_bindings.keys
 
 config.color_scheme = color_scheme
 config.window_frame = tab_bar.merge_tables({
