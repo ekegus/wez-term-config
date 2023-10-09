@@ -1,9 +1,10 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
-wezterm.on("update-right-status", function(window)
-	window:set_right_status(window:active_workspace())
-end)
+-- Shows name of active workspace
+-- wezterm.on("update-right-status", function(window)
+-- 	window:set_right_status(window:active_workspace())
+-- end)
 
 local module = {}
 

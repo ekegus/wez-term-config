@@ -1,8 +1,9 @@
 local wezterm = require("wezterm")
 local tab_bar = require("tab_bar")
+local colors = require("colors")
 local keys_bindings = require("key_bindings")
 
-local color_scheme = "nord"
+local color_scheme = colors.color_scheme
 local font = "Iosevka Nerd Font"
 
 wezterm.on("gui-startup", function(cmd)
